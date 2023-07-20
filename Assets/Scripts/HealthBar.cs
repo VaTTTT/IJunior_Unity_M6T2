@@ -12,15 +12,17 @@ public class HealthBar : MonoBehaviour
 
     private void Start()
     {
-        GetComponent<Slider>().maxValue = _owner.CurrentHealth;
-        GetComponent<Slider>().value = _owner.CurrentHealth;
+        _slider.maxValue = _owner.CurrentHealth;
+        _slider.value = _owner.CurrentHealth;
     }
 
-    private void Update()
+    public IEnumerator CorrectValue()
     {
-        if (_owner.CurrentHealth != _slider.value)
+        while (_owner.CurrentHealth != _slider.value)
         {
             _slider.value = Mathf.MoveTowards(_slider.value, _owner.CurrentHealth, _changingSpeed * Time.deltaTime);
+            
+            yield return null;
         }
     }
 }
