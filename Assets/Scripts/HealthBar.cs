@@ -6,20 +6,21 @@ using UnityEngine.UI;
 
 public class HealthBar : MonoBehaviour
 {
+    [SerializeField] private Slider _slider;
     [SerializeField] private float _changingSpeed;
-    [SerializeField] private Player owner;
+    [SerializeField] private Player _owner;
 
     private void Start()
     {
-        GetComponent<Slider>().maxValue = owner.GetMaxHealth();
-        GetComponent<Slider>().value = owner.GetHealth();
+        GetComponent<Slider>().maxValue = _owner.CurrentHealth;
+        GetComponent<Slider>().value = _owner.CurrentHealth;
     }
 
-    void Update()
+    private void Update()
     {
-        if (owner.GetHealth() != GetComponent<Slider>().value)
+        if (_owner.CurrentHealth != _slider.value)
         {
-            GetComponent<Slider>().value = Mathf.MoveTowards(GetComponent<Slider>().value, owner.GetHealth(), _changingSpeed * Time.deltaTime);
+            _slider.value = Mathf.MoveTowards(_slider.value, _owner.CurrentHealth, _changingSpeed * Time.deltaTime);
         }
     }
 }

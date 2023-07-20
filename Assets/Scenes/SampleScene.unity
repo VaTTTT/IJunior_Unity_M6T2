@@ -361,8 +361,9 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: f1b5436cdd593494681443d669746465, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  _slider: {fileID: 164705155}
   _changingSpeed: 20
-  owner: {fileID: 1054993968}
+  _owner: {fileID: 1054993968}
 --- !u!1 &175816427
 GameObject:
   m_ObjectHideFlags: 0
@@ -375,7 +376,6 @@ GameObject:
   - component: {fileID: 175816431}
   - component: {fileID: 175816430}
   - component: {fileID: 175816429}
-  - component: {fileID: 175816432}
   m_Layer: 5
   m_Name: HealButton
   m_TagString: Untagged
@@ -448,14 +448,14 @@ MonoBehaviour:
   m_OnClick:
     m_PersistentCalls:
       m_Calls:
-      - m_Target: {fileID: 175816432}
-        m_TargetAssemblyTypeName: HealButton, Assembly-CSharp
-        m_MethodName: Heal
-        m_Mode: 1
+      - m_Target: {fileID: 1054993968}
+        m_TargetAssemblyTypeName: Player, Assembly-CSharp
+        m_MethodName: ReceiveHeal
+        m_Mode: 3
         m_Arguments:
           m_ObjectArgument: {fileID: 0}
           m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
-          m_IntArgument: 0
+          m_IntArgument: 10
           m_FloatArgument: 0
           m_StringArgument: 
           m_BoolArgument: 0
@@ -498,20 +498,6 @@ CanvasRenderer:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 175816427}
   m_CullTransparentMesh: 1
---- !u!114 &175816432
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 175816427}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 99e1e0033993b3c46aa6b9f1a7e93199, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  _player: {fileID: 1054993968}
-  _healthAmount: 10
 --- !u!1 &519420028
 GameObject:
   m_ObjectHideFlags: 0
@@ -760,8 +746,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 5d5075d4e87b6d647ac4de63bfc08a97, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  _maxHealth: 100
-  _currentHealth: 100
+  _maxHealth: 99
+  _currentHealth: 99
 --- !u!4 &1054993969
 Transform:
   m_ObjectHideFlags: 0
@@ -1149,7 +1135,6 @@ GameObject:
   - component: {fileID: 2125465523}
   - component: {fileID: 2125465522}
   - component: {fileID: 2125465521}
-  - component: {fileID: 2125465524}
   m_Layer: 5
   m_Name: DamageButton
   m_TagString: Untagged
@@ -1222,14 +1207,14 @@ MonoBehaviour:
   m_OnClick:
     m_PersistentCalls:
       m_Calls:
-      - m_Target: {fileID: 2125465524}
-        m_TargetAssemblyTypeName: DamageButton, Assembly-CSharp
-        m_MethodName: Damage
-        m_Mode: 1
+      - m_Target: {fileID: 1054993968}
+        m_TargetAssemblyTypeName: Player, Assembly-CSharp
+        m_MethodName: TakeDamage
+        m_Mode: 3
         m_Arguments:
           m_ObjectArgument: {fileID: 0}
           m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
-          m_IntArgument: 0
+          m_IntArgument: 10
           m_FloatArgument: 0
           m_StringArgument: 
           m_BoolArgument: 0
@@ -1272,17 +1257,3 @@ CanvasRenderer:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 2125465519}
   m_CullTransparentMesh: 1
---- !u!114 &2125465524
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 2125465519}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 4d26de3c015e9194d9229e97e005ab5c, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  _player: {fileID: 1054993968}
-  _healthAmount: 10
