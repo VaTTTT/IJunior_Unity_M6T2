@@ -1,8 +1,5 @@
 using System.Collections;
-using System.Collections.Generic;
-using Unity.VisualScripting;
 using UnityEngine;
-using UnityEngine.Events;
 using UnityEngine.UI;
 
 public class HealthBar : MonoBehaviour
@@ -10,7 +7,6 @@ public class HealthBar : MonoBehaviour
     [SerializeField] private Slider _slider;
     [SerializeField] private Player _owner;
     [SerializeField] private float _changingSpeed;
-
 
     private void Start()
     {
@@ -30,7 +26,5 @@ public class HealthBar : MonoBehaviour
             _slider.value = Mathf.MoveTowards(_slider.value, _owner.CurrentHealth, _changingSpeed * Time.deltaTime);
             yield return null;
         }
-        
-        StopCoroutine(ChangeValue());
     }
 }
